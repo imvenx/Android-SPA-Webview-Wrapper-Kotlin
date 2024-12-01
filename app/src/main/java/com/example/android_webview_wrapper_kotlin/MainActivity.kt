@@ -23,7 +23,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        window.setDecorFitsSystemWindows(false)
         window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
             val controller = window.insetsController
             if (controller != null) {
