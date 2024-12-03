@@ -1,5 +1,7 @@
 import android.app.Application
+import android.net.http.SslError
 import android.webkit.PermissionRequest
+import android.webkit.SslErrorHandler
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -22,8 +24,25 @@ class WebViewModel(application: Application) : AndroidViewModel(application) {
                 }
             }
 
-            // Load your initial URL
-            loadUrl("http://localhost:8080/")
+            val useDevUrl = false
+            if (useDevUrl){
+                // Use this to serve the app externally while on develop mode
+                // this way you won't need to do a build to see web app changes
+                webViewClient = object : WebViewClient() {
+                    override fun onReceivedSslError(
+                        view: WebView?,
+                        handler: SslErrorHandler?,
+                        error: SslError?
+                    ) {
+                        handler?.proceed()
+                    }
+                }
+                // Here goes your project dev url
+                loadUrl("https://192.168.208.46:9000/")
+            }else{
+                // This is for loading the app build that is on our assets folder
+                loadUrl("http://localhost:8080/")
+            }
         }
     }
 

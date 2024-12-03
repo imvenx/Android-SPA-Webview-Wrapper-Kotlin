@@ -12,6 +12,7 @@ This project is an Android application that wraps a Single Page Application (SPA
 - **Preserve WebView State**: Maintains the state of the WebView during orientation changes and resizes to prevent reloads.
 - **Enable Camera Access** (Optional): Allows the SPA to access the device's camera if needed.
 - **Fullscreen Mode**: Enables the app to display in fullscreen for an immersive experience.
+- **Dev Mode**: Serve the app from your dev environment directly to android studio so you can view changes without rebuild.
 
 ## Why This Approach?
 
