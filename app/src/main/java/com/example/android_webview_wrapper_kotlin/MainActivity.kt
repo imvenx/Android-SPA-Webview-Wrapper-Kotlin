@@ -11,9 +11,6 @@ import android.os.Build
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import androidx.annotation.RequiresApi
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
 
 class MainActivity : ComponentActivity() {
 
