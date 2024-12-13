@@ -24,25 +24,27 @@ class WebViewModel(application: Application) : AndroidViewModel(application) {
                 }
             }
 
-            val useDevUrl = false
-            if (useDevUrl){
-                // Use this to serve the app externally while on develop mode
-                // this way you won't need to do a build to see web app changes
-                webViewClient = object : WebViewClient() {
-                    override fun onReceivedSslError(
-                        view: WebView?,
-                        handler: SslErrorHandler?,
-                        error: SslError?
-                    ) {
-                        handler?.proceed()
-                    }
-                }
+            // Use this to serve the app externally while on develop mode
+            // this way you won't need to do a build to see web app changes
+            // this is commented because it seems google don't like it even
+            // if we don't use it
+//            val useDevUrl = false
+//            if (useDevUrl){
+//                webViewClient = object : WebViewClient() {
+//                    override fun onReceivedSslError(
+//                        view: WebView?,
+//                        handler: SslErrorHandler?,
+//                        error: SslError?
+//                    ) {
+//                        handler?.proceed()
+//                    }
+//                }
                 // Here goes your project dev url
-                loadUrl("https://192.168.208.46:9000/")
-            }else{
+//                loadUrl("https://192.168.208.46:9000/")
+//            }else{
                 // This is for loading the app build that is on our assets folder
                 loadUrl("http://localhost:8080/")
-            }
+//            }
         }
     }
 
